@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("androidx.navigation.safeargs")
 
 }
 
@@ -49,6 +50,8 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    implementation ("androidx.legacy:legacy-support-v4:1.0.0")
     // intuit
     implementation("com.intuit.ssp:ssp-android:1.0.6")
     implementation("com.intuit.sdp:sdp-android:1.0.6")
@@ -58,8 +61,8 @@ dependencies {
     // Kotlin Extensions and Coroutines support for Room
     implementation("androidx.room:room-ktx:2.5.2")
     //navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.6.0")
-    implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     //retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")

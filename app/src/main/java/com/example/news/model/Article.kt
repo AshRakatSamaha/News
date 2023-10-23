@@ -4,6 +4,7 @@ package com.example.news.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 @Entity(
     tableName = "articles"
@@ -12,19 +13,19 @@ data class Article(
     @PrimaryKey(autoGenerate = true)
     var id:Int?=null,
     @SerializedName("author")
-    val author: String? = null,
+    val author: String?,
     @SerializedName("content")
-    val content: String? = null,
+    val content: String? ,
     @SerializedName("description")
-    val description: String? = null,
+    val description: String? ,
     @SerializedName("publishedAt")
-    val publishedAt: String? = null,
+    val publishedAt: String? ,
     @SerializedName("source")
-    val source: Source? = null,
+    val source: Source? ,
     @SerializedName("title")
-    val title: String? = null,
+    val title: String? ,
     @SerializedName("url")
-    val url: String? = null,
+    val url: String ,
     @SerializedName("urlToImage")
-    val urlToImage: String? = null
-)
+    val urlToImage: String?
+):Serializable

@@ -38,8 +38,6 @@ class HomeFragment : Fragment() {
 
     }
     private fun initBottomNavigation() {
-
-
         viewPager = binding.viewPager
         bottomNavigationView = binding.bottomNavigation
         val adapter = MyPagerAdapter(childFragmentManager, fragments, lifecycle)
@@ -56,7 +54,6 @@ class HomeFragment : Fragment() {
             }
             true
         }
-
         viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
                 val itemId = when (position) {

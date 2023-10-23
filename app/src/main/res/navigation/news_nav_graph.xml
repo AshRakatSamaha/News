@@ -14,7 +14,11 @@
         app:exitAnim="@anim/slide_out_left"
         app:popEnterAnim="@anim/slide_in_left"
         app:popExitAnim="@anim/slide_out_right"
-        />
+        >
+        <argument
+            android:name="article"
+            app:argType="com.example.news.model.Article" />
+    </fragment>
     <fragment
         android:id="@+id/breakingNewsFragment"
         android:name="com.example.news.ui.BreakingNewsFragment"
@@ -54,8 +58,5 @@
             app:popExitAnim="@anim/slide_out_right"
             />
     </fragment>
-    <fragment
-        android:id="@+id/homeFragment2"
-        android:name="com.example.news.ui.HomeFragment"
-        android:label="HomeFragment" />
+
 </navigation>

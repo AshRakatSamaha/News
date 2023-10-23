@@ -8,8 +8,10 @@ import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.news.R
 import com.example.news.adapter.NewsAdapter
 import com.example.news.databinding.FragmentSearchNewsBinding
 import com.example.news.util.Constant.Companion.SEARCH_NEWS_TIME
@@ -40,7 +42,12 @@ class SearchNewsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         newsViewModel = (activity as MainActivity).newsViewModel
+        delaySearch()
+        callBack()
+        showSearch()
 
+    }
+    private fun delaySearch(){
         var job:Job?=null
         binding.search.addTextChangedListener {editable->
             job?.cancel()
@@ -51,7 +58,20 @@ class SearchNewsFragment : Fragment() {
                 }
             }
         }
+    }
+    private fun callBack(){
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putSerializable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_searchNewsFragment_to_articleFragment,
+                bundle
+            )
+        }
+    }
 
+    private fun showSearch(){
 
         newsViewModel.searchNews.observe(viewLifecycleOwner, Observer { response ->
             when (response) {

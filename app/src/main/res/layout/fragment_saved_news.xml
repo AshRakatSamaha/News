@@ -3,18 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fillViewport="true">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/savedNewsFragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.SavedNewsFragment"
         >
-        <TextView
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/favorite" />
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            tools:listitem="@layout/item_article" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
