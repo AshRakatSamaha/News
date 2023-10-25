@@ -12,7 +12,7 @@
         tools:context=".ui.SavedNewsFragment"
         >
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycle"
+            android:id="@+id/recycleSaved"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"

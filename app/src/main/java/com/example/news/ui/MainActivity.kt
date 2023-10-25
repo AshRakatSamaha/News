@@ -26,20 +26,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-
+        //handle ViewModelProvider
         val newsRepository = NewsRepository(ArticleDatabase(this))
         val viewModelProviderFactory = NewsViewModelProviderFactory(newsRepository)
         newsViewModel = ViewModelProvider(this, viewModelProviderFactory)[NewsViewModel::class.java]
 
         // status bar
-        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-        val config = Configuration(resources.configuration)
-        config.setLayoutDirection(Locale("en"))
-        resources.updateConfiguration(config, resources.displayMetrics)
-        //  supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.secondary_color)))
-
+        handleStatusBar()
     }
 
     override fun onResume() {
@@ -47,6 +40,14 @@ class MainActivity : AppCompatActivity() {
         //bottomNavigationView
         val navController=findNavController(R.id.newsNavHostGraph)
         binding.bottomNavigation.setupWithNavController(navController)
+
+    }
+    private fun handleStatusBar(){
+        window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+        val config = Configuration(resources.configuration)
+        config.setLayoutDirection(Locale("en"))
+        resources.updateConfiguration(config, resources.displayMetrics)
+        //  supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.secondary_color)))
 
     }
 

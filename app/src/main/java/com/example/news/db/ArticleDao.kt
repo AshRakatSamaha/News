@@ -17,3 +17,9 @@ interface ArticleDao {
     @Delete
     suspend fun deleteArticle(article: Article)
 }
+
+/*
+* task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+* */
